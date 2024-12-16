@@ -563,8 +563,8 @@ export default class SignaturePad extends SignatureEventTarget {
     const root = document.documentElement;
 
     return new Point(
-      x - rect.top - root.scrollTop,
-      y - rect.left - root.scrollLeft,
+      x - rect.left - root.scrollLeft,
+      y - rect.top - root.scrollTop,
       pressure,
       new Date().getTime(),
     );

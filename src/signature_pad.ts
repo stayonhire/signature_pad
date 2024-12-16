@@ -560,11 +560,10 @@ export default class SignaturePad extends SignatureEventTarget {
 
   private _createPoint(x: number, y: number, pressure: number): Point {
     const rect = this.canvas.getBoundingClientRect();
-    const root = document.documentElement;
 
     return new Point(
-      x - rect.left - root.scrollLeft,
-      y - rect.top - root.scrollTop,
+      (x - rect.left) / this._currentScale,
+      (y - rect.top) / this._currentScale,
       pressure,
       new Date().getTime(),
     );

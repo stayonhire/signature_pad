@@ -562,8 +562,8 @@ export default class SignaturePad extends SignatureEventTarget {
     const rect = this.canvas.getBoundingClientRect();
 
     return new Point(
-      (x - rect.left) * this._currentScale,
-      (y - rect.top) * this._currentScale,
+      x * this._currentScale - rect.left * this._currentScale,
+      y * this._currentScale - rect.top * this._currentScale,
       pressure,
       new Date().getTime(),
     );

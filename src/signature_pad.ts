@@ -77,6 +77,7 @@ export default class SignaturePad extends SignatureEventTarget {
   private _data: PointGroup[] = []; // Stores all points in groups (one group per line or dot)
   private _lastVelocity = 0;
   private _lastWidth = 0;
+  private _currentScale = 1;
   private _strokeMoveUpdate: (event: SignatureEvent) => void;
   /* tslint:enable: variable-name */
 
@@ -123,6 +124,10 @@ export default class SignaturePad extends SignatureEventTarget {
     this._data = [];
     this._reset(this._getPointGroupOptions());
     this._isEmpty = true;
+  }
+
+  public scale(value: number): void {
+    this._currentScale = value;
   }
 
   public fromDataURL(
@@ -557,8 +562,8 @@ export default class SignaturePad extends SignatureEventTarget {
     const rect = this.canvas.getBoundingClientRect();
 
     return new Point(
-      x - rect.left,
-      y - rect.top,
+      (x - rect.left) * this._currentScale,
+      (y - rect.top) * this._currentScale,
       pressure,
       new Date().getTime(),
     );

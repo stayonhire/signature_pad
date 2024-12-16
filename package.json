@@ -1,5 +1,5 @@
 {
-  "name": "signature_pad",
+  "name": "@stayonhire/signature_pad",
   "description": "Library for drawing smooth signatures.",
   "version": "5.0.4",
   "homepage": "https://github.com/szimek/signature_pad",
@@ -27,7 +27,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/szimek/signature_pad.git"
+    "url": "https://github.com/stayonhire/signature_pad.git"
   },
   "files": [
     "src",
